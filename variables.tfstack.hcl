@@ -12,6 +12,7 @@ variable "identity_token" {
 
 variable "role_arn" {
   type = string
+  ephemeral = true
 }
 
 variable "default_tags" {
