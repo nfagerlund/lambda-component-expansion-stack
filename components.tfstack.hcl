@@ -50,3 +50,9 @@ component "api_gateway" {
     random = provider.random.this
   }
 }
+
+output "invoke_urls" {
+  description = "URLs that serve the deployed API. Remember to add the method name after the end (e.g. '/hello')"
+  value = {for region, comp in component.api_gateway : region => comp.hello_url}
+  type = map(string)
+}
